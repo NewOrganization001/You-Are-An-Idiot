@@ -11,7 +11,7 @@
             font-family: "Lucida Console", "Courier New", monospace;
             text-align: center;
             padding: 50px;
-            animation: glitch 1s infinite;
+            animation: glitch 0.5s infinite alternate;
         }
         @keyframes glitch {
             0% { text-shadow: 2px 2px red; }
@@ -31,36 +31,39 @@
             text-decoration: underline;
         }
         .distorted {
-            transform: rotate(-5deg);
-            letter-spacing: 5px;
-            font-size: 22px;
+            transform: rotate(-10deg);
+            letter-spacing: 8px;
+            font-size: 24px;
         }
-        .random-position {
+        .random-text {
             position: absolute;
-            top: 50vh;
-            left: 50vw;
-            transform: translate(-50%, -50%) rotate(10deg);
+            left: 50%;
+            transform: translateX(-50%) rotate(5deg);
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
     <h1 class="distorted">3301</h1>
-    <p>"N̷o̴ ̸t̷o̷d̵o̴s̸ ̷l̶o̵s̷ ̴q̵u̷e̵ ̶v̵a̸g̴a̸n̸ ̸e̵s̶t̴á̸n̸ ̵p̶e̴r̷d̵i̶d̴o̸s̶"</p>
-    <p class="random-position">V̵i̷g̵i̶l̴i̵a̴ ̷p̸r̵e̵t̴i̸u̷m̸ ̷l̶i̵b̵e̸r̸t̶a̴t̷i̶s̶ ̸e̴s̷t̸.</p>
+    <p class="random-text">W̶̡̮̯͙̾̏̂̑̓̎h̶̡̜̯̤͂̍͆͜õ̶̪̼̲̺̳̜̝̯͑̈́͘͝ ̶̘̯̦̰͍̦̗͛̈̒̎ȧ̷̱͉̘̹̘̯̘̬̇̓̈́̀̿̚r̷̡̦̙̻͕͇̈́̀̓͆̚͝͠e̷̟͛̿͊̓͑̅̚̚ ̵̩̻̍̅̐̑̌͑͛̏͝y̷̨̛̗̙͉̲̪̠̰̿̓̍͛̎̅̚̚ọ̶̢̨̦͍̲̊̉̉̿̄̋̔́ų̷̡̪̼̦̰̺͉͗̿̃̒́?</p>
     <p>01101001 01101110 01110100 01100101 01101100</p>
     <p>☽ Can you see the patterns? ☾</p>
     <p><a href="#" onclick="reveal()">[ ACCESS ]</a></p>
     
     <div id="hidden-message" class="hidden">
-        <p>W̵̔͗̅̕͜ę̸̻̪̪͆̄̈́̑l̸̡͕̗̩͙̳͈̈̄́̄̈́̀͆͠c̵̺͕͌̅̏̓̒̎͠ơ̴̛̥̞̈̾̄̄͂͒̈́̍m̷̲̤̖̼̩̎͂̾̀ḛ̸̛̞̰̠̝̦̳̅̾̓̾͗,̶̥̘͋̄̄̈́͝ ̵̤͍̑̔͗s̵̡͕͈̪̖̰͑̀́̈́͌͒e̵̗̙̺̳̩̳̓̄̇̒͐̀̑͝͝e̸̜͇̦̅̅̿̀͠k̴̩͕̗͕̰̩̒̎͝ḛ̷̠͆͆̔͛̾̕͠r̷̘̰̦̱̘̂̂̆͑̈͂̀̚.̸̛̝̝̬̼͙̿̋̚͘͠</p>
+        <p>Welcome, seeker. The journey begins.</p>
+        <p>Decrypt: 54686973206973206A7573742074686520626567696E6E696E67</p>
+        <p>01F4A9 0414 04F6 042B 0427 03A9 0021</p>
         <p>Find the truth: <a href="https://en.wikipedia.org/wiki/Cicada_3301" target="_blank">https://en.wikipedia.org/wiki/Cicada_3301</a></p>
-        <p>D̸̠̼̘̹̤̜̹͇̜̐̔͂̈́͘̕̚͠͠ḛ̶̖̟̠̱̺̯̓̇͊͆̌̿́̏͠ͅc̵̠͎̬̝̞̯̳̦̅̀͆̓͛̇̊͠ȑ̸͖̖̳͎̱͕͎̠͒̊̎̎̊͂̈́̀y̷̝̗͍̱̾̆̊̄͗͂̀̕p̷̼̟̯̠̝̺̖̻̑̏͆̆̃͒͆̚͜͝ț̵̛͚̯̖̤̦̤̳̄̆̄̑̈́͘:̷̪̞̅̆͋͆͊͆͐̕ 54686973206973206A7573742074686520626567696E6E696E67</p>
+        <p>𝕋𝕙𝕖𝕣𝕖 𝕚𝕤 𝕟𝕠 𝕥𝕣𝕦𝕥𝕙, 𝕠𝕟𝕝𝕪 𝕔𝕠𝕕𝕖.</p>
     </div>
     
     <script>
         function reveal() {
             document.getElementById("hidden-message").classList.remove("hidden");
         }
+        setTimeout(() => { alert("You are being watched."); }, 15000);
     </script>
 </body>
 </html>
+
