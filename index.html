@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dino Runner</title>
+    <title>Dino Runner Mejorado</title>
     <style>
         body {
             text-align: center;
@@ -17,16 +17,16 @@
     </style>
 </head>
 <body>
-    <h1>Dino Runner</h1>
-    <p>Presiona espacio para saltar</p>
+    <h1>Dino Runner Mejorado</h1>
+    <p>Usa W A S D para moverte</p>
     <canvas id="gameCanvas" width="800" height="200"></canvas>
     <script>
         const canvas = document.getElementById("gameCanvas");
         const ctx = canvas.getContext("2d");
         
-        let dino = { x: 50, y: 150, width: 30, height: 30, velocityY: 0, gravity: 1 };
+        let dino = { x: 50, y: 150, width: 30, height: 30, velocityY: 0, gravity: 1, speed: 5 };
         let obstacle = { x: 800, y: 150, width: 30, height: 30 };
-        let isJumping = false;
+        let keys = {};
         let gameOver = false;
         
         function draw() {
@@ -41,7 +41,11 @@
             if (!gameOver) {
                 dino.velocityY += dino.gravity;
                 dino.y += dino.velocityY;
-                if (dino.y > 150) { dino.y = 150; isJumping = false; }
+                if (dino.y > 150) dino.y = 150;
+                
+                if (keys["w"] && dino.y === 150) dino.velocityY = -12;
+                if (keys["a"] && dino.x > 0) dino.x -= dino.speed;
+                if (keys["d"] && dino.x < canvas.width - dino.width) dino.x += dino.speed;
                 
                 obstacle.x -= 5;
                 if (obstacle.x < -30) obstacle.x = 800;
@@ -63,10 +67,11 @@
         }
         
         document.addEventListener("keydown", function(event) {
-            if (event.code === "Space" && !isJumping) {
-                dino.velocityY = -12;
-                isJumping = true;
-            }
+            keys[event.key.toLowerCase()] = true;
+        });
+        
+        document.addEventListener("keyup", function(event) {
+            keys[event.key.toLowerCase()] = false;
         });
         
         gameLoop();
