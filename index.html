@@ -8,9 +8,15 @@
         body {
             background-color: black;
             color: #00ff00;
-            font-family: "Courier New", monospace;
+            font-family: "Lucida Console", "Courier New", monospace;
             text-align: center;
             padding: 50px;
+            animation: glitch 1s infinite;
+        }
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px red; }
+            50% { text-shadow: -2px -2px cyan; }
+            100% { text-shadow: 2px 2px red; }
         }
         .hidden {
             display: none;
@@ -18,24 +24,37 @@
         a {
             color: #ff0000;
             text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
         }
         a:hover {
             text-decoration: underline;
         }
+        .distorted {
+            transform: rotate(-5deg);
+            letter-spacing: 5px;
+            font-size: 22px;
+        }
+        .random-position {
+            position: absolute;
+            top: 50vh;
+            left: 50vw;
+            transform: translate(-50%, -50%) rotate(10deg);
+        }
     </style>
 </head>
 <body>
-    <h1>3301</h1>
-    <p>"No todos los que vagan están perdidos"</p>
-    <p>Vigilia pretium libertatis est.</p>
+    <h1 class="distorted">3301</h1>
+    <p>"N̷o̴ ̸t̷o̷d̵o̴s̸ ̷l̶o̵s̷ ̴q̵u̷e̵ ̶v̵a̸g̴a̸n̸ ̸e̵s̶t̴á̸n̸ ̵p̶e̴r̷d̵i̶d̴o̸s̶"</p>
+    <p class="random-position">V̵i̷g̵i̶l̴i̵a̴ ̷p̸r̵e̵t̴i̸u̷m̸ ̷l̶i̵b̵e̸r̸t̶a̴t̷i̶s̶ ̸e̴s̷t̸.</p>
     <p>01101001 01101110 01110100 01100101 01101100</p>
-    <p>Can you see the patterns?</p>
+    <p>☽ Can you see the patterns? ☾</p>
     <p><a href="#" onclick="reveal()">[ ACCESS ]</a></p>
     
     <div id="hidden-message" class="hidden">
-        <p>Welcome, seeker. The journey begins.</p>
+        <p>W̵̔͗̅̕͜ę̸̻̪̪͆̄̈́̑l̸̡͕̗̩͙̳͈̈̄́̄̈́̀͆͠c̵̺͕͌̅̏̓̒̎͠ơ̴̛̥̞̈̾̄̄͂͒̈́̍m̷̲̤̖̼̩̎͂̾̀ḛ̸̛̞̰̠̝̦̳̅̾̓̾͗,̶̥̘͋̄̄̈́͝ ̵̤͍̑̔͗s̵̡͕͈̪̖̰͑̀́̈́͌͒e̵̗̙̺̳̩̳̓̄̇̒͐̀̑͝͝e̸̜͇̦̅̅̿̀͠k̴̩͕̗͕̰̩̒̎͝ḛ̷̠͆͆̔͛̾̕͠r̷̘̰̦̱̘̂̂̆͑̈͂̀̚.̸̛̝̝̬̼͙̿̋̚͘͠</p>
         <p>Find the truth: <a href="https://en.wikipedia.org/wiki/Cicada_3301" target="_blank">https://en.wikipedia.org/wiki/Cicada_3301</a></p>
-        <p>Decrypt: 54686973206973206A7573742074686520626567696E6E696E67</p>
+        <p>D̸̠̼̘̹̤̜̹͇̜̐̔͂̈́͘̕̚͠͠ḛ̶̖̟̠̱̺̯̓̇͊͆̌̿́̏͠ͅc̵̠͎̬̝̞̯̳̦̅̀͆̓͛̇̊͠ȑ̸͖̖̳͎̱͕͎̠͒̊̎̎̊͂̈́̀y̷̝̗͍̱̾̆̊̄͗͂̀̕p̷̼̟̯̠̝̺̖̻̑̏͆̆̃͒͆̚͜͝ț̵̛͚̯̖̤̦̤̳̄̆̄̑̈́͘:̷̪̞̅̆͋͆͊͆͐̕ 54686973206973206A7573742074686520626567696E6E696E67</p>
     </div>
     
     <script>
