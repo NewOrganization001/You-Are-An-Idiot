@@ -3,20 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3301</title>
+    <title>???</title>
     <style>
         body {
             background-color: black;
             color: #00ff00;
-            font-family: "Lucida Console", "Courier New", monospace;
-            text-align: center;
-            padding: 50px;
-            animation: glitch 0.5s infinite alternate;
-        }
-        @keyframes glitch {
-            0% { text-shadow: 2px 2px red; }
-            50% { text-shadow: -2px -2px cyan; }
-            100% { text-shadow: 2px 2px red; }
+            font-family: "Consolas", "Courier", monospace;
+            text-align: left;
+            padding: 20px;
+            white-space: pre-wrap;
+            overflow: hidden;
         }
         .hidden {
             display: none;
@@ -24,46 +20,68 @@
         a {
             color: #ff0000;
             text-decoration: none;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
         }
         a:hover {
             text-decoration: underline;
         }
-        .distorted {
-            transform: rotate(-10deg);
-            letter-spacing: 8px;
-            font-size: 24px;
-        }
-        .random-text {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%) rotate(5deg);
-            opacity: 0.8;
+        .code-block {
+            font-size: 14px;
+            line-height: 1.5;
         }
     </style>
 </head>
 <body>
-    <h1 class="distorted">3301</h1>
-    <p class="random-text">W̶̡̮̯͙̾̏̂̑̓̎h̶̡̜̯̤͂̍͆͜õ̶̪̼̲̺̳̜̝̯͑̈́͘͝ ̶̘̯̦̰͍̦̗͛̈̒̎ȧ̷̱͉̘̹̘̯̘̬̇̓̈́̀̿̚r̷̡̦̙̻͕͇̈́̀̓͆̚͝͠e̷̟͛̿͊̓͑̅̚̚ ̵̩̻̍̅̐̑̌͑͛̏͝y̷̨̛̗̙͉̲̪̠̰̿̓̍͛̎̅̚̚ọ̶̢̨̦͍̲̊̉̉̿̄̋̔́ų̷̡̪̼̦̰̺͉͗̿̃̒́?</p>
-    <p>01101001 01101110 01110100 01100101 01101100</p>
-    <p>☽ Can you see the patterns? ☾</p>
-    <p><a href="#" onclick="reveal()">[ ACCESS ]</a></p>
-    
-    <div id="hidden-message" class="hidden">
-        <p>Welcome, seeker. The journey begins.</p>
-        <p>Decrypt: 54686973206973206A7573742074686520626567696E6E696E67</p>
-        <p>01F4A9 0414 04F6 042B 0427 03A9 0021</p>
-        <p>Find the truth: <a href="https://en.wikipedia.org/wiki/Cicada_3301" target="_blank">https://en.wikipedia.org/wiki/Cicada_3301</a></p>
-        <p>𝕋𝕙𝕖𝕣𝕖 𝕚𝕤 𝕟𝕠 𝕥𝕣𝕦𝕥𝕙, 𝕠𝕟𝕝𝕪 𝕔𝕠𝕕𝕖.</p>
-    </div>
-    
-    <script>
-        function reveal() {
-            document.getElementById("hidden-message").classList.remove("hidden");
-        }
-        setTimeout(() => { alert("You are being watched."); }, 15000);
-    </script>
+<pre class="code-block">
+01101000 01101001 01100100 01100100 01100101 01101110
+52 45 44 41 43 54 45 44
+43 4F 44 45 20 49 53 20 4C 41 57
+
+U2VlayBhbmQgeW91IHNoYWxsIGZpbmQ=
+
+SYSTEM OVERRIDE_
+█████████ 100%
+█████████ 100%
+█████████ 100%
+
+ERROR 403 - ACCESS DENIED_
+
+[  ] Searching...
+[█████░░░░░░░░░░░░] 23%
+[██████████░░░░░░░] 52%
+[███████████████░░] 91%
+[█████████████████] 100%
+
+[ WARNING ] Suspicious activity detected...
+
+[ MESSAGE ENCRYPTED ]
+42 6C 61 63 6B 20 42 6F 78 20 4B 65 79 20 46 6F 75 6E 64
+VXNlcm5hbWU6IGd1ZXN0
+UGFzc3dvcmQ6IFVua25vd24=
+
+<a href="#" onclick="reveal()">[ ACCESS FILE ]</a>
+</pre>
+
+<div id="hidden-message" class="hidden">
+<pre class="code-block">
+{ DATA_DUMP } 
+01001001 00100000 01110011 01100101 01100101 00101110 00101110 00101110 
+49 20 41 4D 20 57 41 54 43 48 49 4E 47 2E 2E 2E 
+
+42 65 20 63 61 72 65 66 75 6C 20 77 68 61 74 20 79 6F 75 20 77 69 73 68 20 66 6F 72 
+64 75 64 6F 20 79 6F 75 20 73 65 65 6B 2E 
+
+U2VhcmNoIGFuZCB5b3Ugc2hhbGwgZmluZC4=
+
+<a href="https://en.wikipedia.org/wiki/Cicada_3301" target="_blank">[ READ MORE ]</a>
+</pre>
+</div>
+
+<script>
+    function reveal() {
+        document.getElementById("hidden-message").classList.remove("hidden");
+    }
+</script>
 </body>
 </html>
-
