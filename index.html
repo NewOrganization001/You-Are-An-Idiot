@@ -1,108 +1,122 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>!!! WARNING !!!</title>
-    <style>
-        body {
-            background-color: black;
-            color: #00ff00;
-            font-family: "Consolas", "Courier", monospace;
-            text-align: left;
-            padding: 20px;
-            white-space: pre-wrap;
-            overflow: hidden;
-        }
-        .hidden {
-            display: none;
-        }
-        a {
-            color: #ff0000;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .code-block {
-            font-size: 14px;
-            line-height: 1.5;
-        }
-    </style>
-    <script>
-        window.onload = function() {
-            setTimeout(function() {
-                alert("System Error: Critical Failure Detected!\n\nCode: 0xDEADBEEF\nUnauthorized Access Attempt Logged.");
-            }, 1000);
-        };
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reproductor de Spritesheet estilo Beat Banger</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #111;
+      color: white;
+    }
+    #dropzone {
+      border: 2px dashed #888;
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      width: 90%;
+      max-width: 500px;
+      margin-bottom: 20px;
+    }
+    canvas {
+      border: 2px solid white;
+      image-rendering: pixelated;
+    }
+    input {
+      margin: 5px;
+    }
+  </style>
 </head>
 <body>
-<pre class="code-block">
-01101000 01101001 01100100 01100100 01100101 01101110
-52 45 44 41 43 54 45 44
-43 4F 44 45 20 49 53 20 4C 41 57
+  <h2>Reproductor estilo Beat Banger</h2>
+  <div id="dropzone">
+    <p>Arrastra una imagen PNG tipo spritesheet aquí</p>
+    <input type="number" id="cols" placeholder="Columnas (frames por fila)" />
+    <input type="number" id="rows" placeholder="Filas" />
+    <input type="number" id="speed" placeholder="Velocidad (ms por frame)" />
+  </div>
+  <canvas id="canvas" width="512" height="512"></canvas>
 
-U2VlayBhbmQgeW91IHNoYWxsIGZpbmQ=
+  <script>
+    const dropzone = document.getElementById('dropzone');
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    let sheetImg, frameWidth, frameHeight;
+    let cols, rows, speed;
+    let currentFrame = 0;
+    let interval;
 
-SYSTEM OVERRIDE_
-█████████ 100%
-█████████ 100%
-█████████ 100%
+    dropzone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropzone.style.borderColor = '#fff';
+    });
 
-ERROR 666 - SYSTEM INFECTED_
+    dropzone.addEventListener('dragleave', () => {
+      dropzone.style.borderColor = '#888';
+    });
 
-[  ] Searching...
-[█████░░░░░░░░░░░░] 23%
-[██████████░░░░░░░] 52%
-[███████████████░░] 91%
-[█████████████████] 100%
+    dropzone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropzone.style.borderColor = '#888';
+      const file = e.dataTransfer.files[0];
+      if (file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          sheetImg = new Image();
+          sheetImg.onload = () => {
+            clearInterval(interval);
+            startAnimation();
+          };
+          sheetImg.src = event.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
 
-[ WARNING ] Suspicious activity detected...
-[ WARNING ] Tracing your IP...
-[ WARNING ] Proxy detected... Bypassing...
+    function startAnimation() {
+      cols = parseInt(document.getElementById('cols').value);
+      rows = parseInt(document.getElementById('rows').value);
+      speed = parseInt(document.getElementById('speed').value);
+      if (!cols || !rows || !speed) {
+        alert('Por favor, llena todos los campos (columnas, filas y velocidad).');
+        return;
+      }
 
-[ MESSAGE ENCRYPTED ]
-42 6C 61 63 6B 20 42 6F 78 20 4B 65 79 20 46 6F 75 6E 64
-VXNlcm5hbWU6IFVOS05PV04=
-UGFzc3dvcmQ6IFJlZG9vYnNjYXR0ZXI=
+      frameWidth = sheetImg.width / cols;
+      frameHeight = sheetImg.height / rows;
+      canvas.width = frameWidth;
+      canvas.height = frameHeight;
 
-!! UNAUTHORIZED ACCESS DETECTED !!
-!! TRACKING ENABLED !!
-!! INITIATING COUNTERMEASURES !!
+      currentFrame = 0;
+      interval = setInterval(() => {
+        const totalFrames = cols * rows;
+        const col = currentFrame % cols;
+        const row = Math.floor(currentFrame / cols);
 
-<a href="#" onclick="reveal()">[ ACCESS FILE ]</a>
-</pre>
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(
+          sheetImg,
+          col * frameWidth,
+          row * frameHeight,
+          frameWidth,
+          frameHeight,
+          0,
+          0,
+          frameWidth,
+          frameHeight
+        );
 
-<div id="hidden-message" class="hidden">
-<pre class="code-block">
-{ DATA_DUMP } 
-01001001 00100000 01110011 01100101 01100101 00101110 00101110 00101110 
-49 20 41 4D 20 57 41 54 43 48 49 4E 47 2E 2E 2E 
-
-42 65 20 63 61 72 65 66 75 6C 20 77 68 61 74 20 79 6F 75 20 77 69 73 68 20 66 6F 72 
-64 75 64 6F 20 79 6F 75 20 73 65 65 6B 2E 
-
-U2VhcmNoIGFuZCB5b3Ugc2hhbGwgZmluZC4=
-
-[ MALICIOUS CODE DETECTED ]
-01000001 01101100 01101100 00100000 01110011 01100101 01100101 01101001 01101110 01100111 00101110 00101110 00101110 
-01001001 01110100 00100111 01110011 00100000 01101111 01101110 01101100 01111001 00100000 01100001 00100000 01101101 01100001 01110100 01110100 01100101 01110010 00101110 00101110 00101110 
-
-TRACKING SIGNAL LOCKED_
-USER LOCATION: 34.0522° N, 118.2437° W
-
-<a href="https://en.wikipedia.org/wiki/Cicada_3301" target="_blank">[ READ MORE ]</a>
-</pre>
-</div>
-
-<script>
-    function reveal() {
-        document.getElementById("hidden-message").classList.remove("hidden");
+        currentFrame = (currentFrame + 1) % totalFrames;
+      }, speed);
     }
-</script>
+  </script>
 </body>
 </html>
 
